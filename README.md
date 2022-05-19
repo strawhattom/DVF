@@ -6,7 +6,7 @@
 git clone https://github.com/strawhattom/DVF && cd DVF
 ```
 
-## Dependencies (Linux)
+## Running project (Linux)
 
 
 ### Creating a virtual environment
@@ -32,5 +32,33 @@ pip install -r requirements.txt
 ```bash
 export FLASK_APP=App
 export FLASK_ENV=development
+flask run
+```
+
+## Running project (Windows)
+
+### Creating venv
+
+```bash
+py -3 -m venv .venv
+```
+
+### Activating venv
+
+```bash
+venv\Scripts\activate
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run development version
+
+```bash
+$env:FLASK_APP = "App"
+$env:FLASK_ENV = "developement"
 flask run
 ```
