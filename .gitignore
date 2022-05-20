@@ -1,4 +1,5 @@
 venv/
 .venv/
 __pycache__/
-statics/*
+valeurs*.txt
+statics/

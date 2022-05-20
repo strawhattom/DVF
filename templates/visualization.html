@@ -16,16 +16,22 @@
         </div>
     </div>
 
-    {% if chart == "NAN" %}
+    {% if figure == "NULL" %}
 
-    <h2>No chart</h2>
+    <h2>No figure </h2>
+
+    {% elif figure == "plot" %}
+    <h2> Plot </h2>
+
+    <p align="center">
+        <img src="/{{id}}/plot.png"/>
+    </p>
 
     {% else %}
-
-    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+    <h2> Other figure </h2>
     {% endif %}
 
-    {% if table == "NAN" %}
+    {% if table["data"] == "NULL" %}
     <h2>No data</h2>
     {% else %}
     <h2>Section title</h2>

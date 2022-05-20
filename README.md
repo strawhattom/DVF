@@ -12,7 +12,7 @@ git clone https://github.com/strawhattom/DVF && cd DVF
 ### Creating a virtual environment
 
 ```
-python venv .venv
+python -m venv .venv
 ```
 
 ### Activating venv
