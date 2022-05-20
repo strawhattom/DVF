@@ -32,6 +32,7 @@ for i in range(2,21):
         "data":"NULL",
     }
 
+
 @app.route('/')
 def home():
     return render_template('home.html', title = "Home", id = 1)
