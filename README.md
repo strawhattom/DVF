@@ -70,6 +70,7 @@ pipwin install six
 pipwin install rtree
 pipwin install geopandas
 ```
+after that you can install requirements like above.
 
 ### Run development version
 
