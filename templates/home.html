@@ -39,7 +39,7 @@
 
 </head>
 
-<body>
+<body  class="h-100">
 
   <div class="container-fluid">
     <div class="row">
@@ -53,9 +53,9 @@
         <hr>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 
-          {% for key in range(1,21) %}
+          {% for key in range(1,5) %}
           <li>
-            <a href="/{{key}}" class="nav-link py-2 border-bottom {% if id and key == id %} active {% endif %}"
+            <a href="/{{key}}" class="nav-link py-2 border-bottom"
               aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
               Visualization {{key}}
             </a>
