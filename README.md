@@ -55,6 +55,22 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+If you are getting `Fiona error` please use those instructions : [source](https://stackoverflow.com/questions/54734667/error-installing-geopandas-a-gdal-api-version-must-be-specified-in-anaconda)
+```bash
+pip install wheel
+pip install pipwin
+
+pipwin install numpy
+pipwin install pandas
+pipwin install shapely
+pipwin install gdal
+pipwin install fiona
+pipwin install pyproj
+pipwin install six
+pipwin install rtree
+pipwin install geopandas
+```
+
 ### Run development version
 
 ```bash
