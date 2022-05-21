@@ -8,7 +8,7 @@ def covidFigure():
     X = covid['date']
     Y = covid['patients_hospitalises']
     
-    fig = plt.figure(figsize=(20, 6), dpi=80)
+    fig = plt.figure(figsize=(16, 6), dpi=80)
     axis = fig.add_subplot(1, 1, 1)
 
     axis.plot(X, Y)
@@ -18,3 +18,5 @@ def covidFigure():
        title = "Nombre de cas de covid en fonction de la date")
 
     return fig
+
+covidFig = covidFigure()
