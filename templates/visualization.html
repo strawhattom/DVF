@@ -6,13 +6,45 @@
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{name}}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                Semester
-            </button>
+            
+            {% if id != 1 %}
+                {% if id != 4 %}
+                    {% if id == 2 %}
+                    <a href="/{{id}}?region={% if region == 'metropole' %}RhoneAlpes{% else %}metropole{% endif %}">
+                        <button type="button" class="btn btn-sm btn-outline-secondary ">
+                            {% if region == "metropole" %}
+                            Rhone Alpes
+                            {% else %}
+                            Metropole
+                            {% endif %}
+                        </button>
+                    </a>
+                    {% else %}
+                    <a href="/{{id}}?region={% if region == 'Occitanie' %}RhoneAlpes{% else %}Occitanie{% endif %}">
+                        <button type="button" class="btn btn-sm btn-outline-secondary ">
+                            {% if region == "Occitanie" %}
+                            Rhone Alpes
+                            {% else %}
+                            Occitanie
+                            {% endif %}
+                        </button>
+                    </a>
+                    {% endif %}
+                
+                {% else %}
+                    <a href="/{{id}}?year={% if year == '2021' %}2018{% else %}2021{% endif %}">
+                        <button type="button" class="btn btn-sm btn-outline-secondary ">
+                            {% if year == "2021" %}
+                            2018
+                            {% else %}
+                            2021
+                            {% endif %}
+                        </button>
+                    </a>
+                    
+                {% endif %}
+            {% endif %}
+            
         </div>
     </div>
 
@@ -21,6 +53,9 @@
 
     <p align="center">
         <img src="/{{id}}/plot.png?year={{year}}&region={{region}}"/>
+        {% if id == 4 %}
+        <img src="/{{id}}/plot2.png?year={{year}}"/>
+        {% endif %}
     </p>
 
     {% else %}
