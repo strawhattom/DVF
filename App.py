@@ -1,8 +1,8 @@
 import io
-from flask import Flask, url_for, redirect, render_template, request, make_response, Response
+from flask import Flask, url_for, redirect, render_template, request, make_response, Response, send_file
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from covid import covidFig
-from dataframe import *
+from datatemplate import data
 
 app = Flask(__name__)
 
@@ -22,20 +22,32 @@ def createPlot(id):
         return Response(output.getvalue(), mimetype='image/png')
     elif id == 2 :
         # nb vente
+        # region = request.args.get('region', default = "metropole", type = str)
+        # year = request.args.get('year', default = "2021", type = str)
+        # fig = nvFigures2020[region] if year == "2020" else nvFigures2021[region]
+        # output = io.BytesIO()
+        # FigureCanvas(fig).print_png(output)
+        # return Response(output.getvalue(), mimetype='image/png')
+
         region = request.args.get('region', default = "metropole", type = str)
-        year = request.args.get('year', default = "2021", type = str)
-        fig = nvFigures2020[region] if year == "2020" else nvFigures2021[region]
-        output = io.BytesIO()
-        FigureCanvas(fig).print_png(output)
-        return Response(output.getvalue(), mimetype='image/png')
+        region = "metropole" if region != "RhoneAlpes" else "RhoneAlpes"
+        year = 2021
+        return send_file("/static/Ventes{region}{year}.png", mimetype="image/png")
     elif id == 3 :
         # prix surface
-        output = io.BytesIO()
-        region = request.args.get('region', default = "metropole", type = str)
-        year = request.args.get('year', default = "2021", type = str)
-        fig = psFigures2020[region] if year == "2020" else nvFigures2021[region]
-        FigureCanvas(fig).print_png(output)
-        return Response(output.getvalue(), mimetype='image/png')      
+        # output = io.BytesIO()
+        region = request.args.get('region', default = "Occitanie", type = str)
+        # year = request.args.get('year', default = "2021", type = str)
+        year = 2021
+        # fig = psFigures2020[region] if year == "2020" else nvFigures2021[region]
+        # FigureCanvas(fig).print_png(output)
+        # return Response(output.getvalue(), mimetype='image/png')   
+        return send_file(f"/static/Ventes", mimetype="image/png")
+    elif id == 4:
+        region = request.args.get('region', default = "HautDeFrance", type = str)
+        send_file(f"/static/DiffVentes{region}.png", mimetype="img/png")
+        return send_file(f"/static/DiffPrix{region}.png", mimetype="img/png")
+
     else: return NULL
 
 @app.route('/<int:id>')

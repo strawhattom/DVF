@@ -141,48 +141,23 @@ def figurePrixSurface(PrixSurfaceAnnee, Region, annee = "2020", nom_region = "me
 # DF
 
 geo = gpd.read_file('https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson')
-df_2020, df_2021 = importData()
+# df_2020, df_2021 = importData()
 df_covid = pd.read_csv("static/synthese-fra.csv")
 
-r = region(geo)
+# r = region(geo)
 
-prixSurface = prixSurface(df_2020, df_2021) # prixSurface["2021"], prixSurface["2022"]
-psFigures2020 = {
-    k:figurePrixSurface(prixSurface, r, "2020", r[k]) for k in r.keys()
-}
-psFigures2021 = {
-    k:figurePrixSurface(prixSurface, r, "2021", r[k]) for k in r.keys()
-}
+# prixSurface = prixSurface(df_2020, df_2021) # prixSurface["2021"], prixSurface["2022"]
+# psFigures2020 = {
+#     k:figurePrixSurface(prixSurface, r, "2020", r[k]) for k in r.keys()
+# }
+# psFigures2021 = {
+#     k:figurePrixSurface(prixSurface, r, "2021", r[k]) for k in r.keys()
+# }
 
-nmbVentesAnnee = venteDepartement(df_2020, df_2021)
-nvFigures2020 = {
-    k:figureNmbVentes(nmbVentesAnnee, r, "2020", r[k]) for k in r.keys()
-}
-nvFigures2021 = {
-    k:figureNmbVentes(nmbVentesAnnee, r, "2021", r[k]) for k in r.keys()
-}
-
-data = {}
-for i in range(1,5):
-    data[i] = {
-        "figure":"NULL",
-        "headers":"NULL",
-        'name':"NULL",
-        'description':"NULL",
-        "data":"NULL",
-    }
-
-# First plot
-data[1]["figure"] = "plot"
-data[1]["name"] = "Covid"
-data[1]["description"] = "Nombre de cas de la covid"
-
-# Second plot
-data[2]["figure"] = "plot"
-data[2]["name"] = "Nombre de vente"
-data[2]["description"] = "Par département"
-
-# Third
-data[3]["figure"] = "plot"
-data[3]["name"] = "Prix surface"
-data[3]["description"] = "Par région"
+# nmbVentesAnnee = venteDepartement(df_2020, df_2021)
+# nvFigures2020 = {
+#     k:figureNmbVentes(nmbVentesAnnee, r, "2020", r[k]) for k in r.keys()
+# }
+# nvFigures2021 = {
+#     k:figureNmbVentes(nmbVentesAnnee, r, "2021", r[k]) for k in r.keys()
+# }
